@@ -27,51 +27,51 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["web", os.getenv("ALLOWED_HOST", "localhost")] if os.getenv("NODEBUG") is None else [".zacoberg.com"]
 
-if os.environ.get("IN_DOCKER"):
-    # Stuff for when running in Docker-compose.
+# if os.environ.get("IN_DOCKER"):
+#     # Stuff for when running in Docker-compose.
 
-    CELERY_BROKER_URL = 'redis://redis:6379/1'
-    CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
+#     CELERY_BROKER_URL = 'redis://redis:6379/1'
+#     CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': "postgres",
-            'USER': 'postgres',
-            'PASSWORD': 'password',
-            'HOST': "db",
-            'PORT': 5432,
-        }
-    }
-elif os.environ.get("DATABASE_URL"):
-    # Stuff for when running in Dokku.
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': "postgres",
+#             'USER': 'postgres',
+#             'PASSWORD': 'password',
+#             'HOST': "db",
+#             'PORT': 5432,
+#         }
+#     }
+# elif os.environ.get("DATABASE_URL"):
+#     # Stuff for when running in Dokku.
 
-    # Parse the DATABASE_URL env var.
-    USER, PASSWORD, HOST, PORT, NAME = re.match("^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$", os.environ.get("DATABASE_URL", "")).groups()
+#     # Parse the DATABASE_URL env var.
+#     USER, PASSWORD, HOST, PORT, NAME = re.match("^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$", os.environ.get("DATABASE_URL", "")).groups()
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': NAME,
-            'USER': USER,
-            'PASSWORD': PASSWORD,
-            'HOST': HOST,
-            'PORT': int(PORT),
-        }
-    }
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': NAME,
+#             'USER': USER,
+#             'PASSWORD': PASSWORD,
+#             'HOST': HOST,
+#             'PORT': int(PORT),
+#         }
+#     }
 
-    CELERY_BROKER_URL = os.environ.get("REDIS_URL", "") + "/1"
-    CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "") + "/1"
-else:
+#     CELERY_BROKER_URL = os.environ.get("REDIS_URL", "") + "/1"
+#     CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", "") + "/1"
+# else:
     # Stuff for when running locally.
 
-    CELERY_TASK_ALWAYS_EAGER = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-         }
-     }
+CELERY_TASK_ALWAYS_EAGER = True
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Application definition
 
