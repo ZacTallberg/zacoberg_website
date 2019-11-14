@@ -26,7 +26,7 @@ SECRET_KEY = 'zd9n!vf=empkq21e1k-dj$@x2h#)3#hatjoapd6mk1@j#vz*ih'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.zacoberg.com']
+ALLOWED_HOSTS = ['.zacoberg.com', '127.0.0.1']
 
 
 # Application definition
