@@ -1,15 +1,16 @@
-{% load static %}
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
+    <body>
     <head>
         <title>
             Meghan is my goddess.
         </title>
     </head>
+</body>
     <body>
         <h1>Hail Seitan</h1>
-        
-        <img src="{% static 'images/seitan.png' %}"/>
+        {% load static %} <img src="{% static 'images/seitan.png' %}"/>
     </body>
 </html>
