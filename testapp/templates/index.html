@@ -1,21 +1,76 @@
 {% extends "base.html" %}
 
+{% load static %} 
+
 {% load bootstrap4 %}
 
 {% block content %}
 <div class="row align-items-center"></div>
-                <form method="GET">
+               
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary">KITTEN</button>
+                            <button class="btn btn-primary" id="jsstyle" onclick="display_random_image();">
+                            KITTEN
+                        </button>
                         </div>
-                    </form>
+                    
     
-           
+                    <div class="container">
+                            <div class="row imagetiles">
+                                
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                        <button id="jsstyle"
+                            onclick="display_random_image()">Random</div>
+                        </div>  
     
 </div>
 
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript">
+function display_random_image() 
+{
+    var images = 
+        [{src: "http://zacoberg.com/static/images/1.jpg"}, 
+        {src: "http://zacoberg.com/static/images/2.png"},
+        {src: "http://zacoberg.com/static/images/3.png"},
+        {src: "http://zacoberg.com/static/images/4.png"},
+        {src: "http://zacoberg.com/static/images/5.png"}];
+    
+    var preBuffer = [];
+    for (var i = 0, j = images.length; i < j; i++) 
+    {
+        preBuffer[i] = new Image();
+        preBuffer[i].src = images[i].src;
+    }
+   
+        // create random image number
+        function getRandomInt(min,max) 
+        {
+        //  return Math.floor(Math.random() * (max - min + 1)) + min;
+    
+        imn = Math.floor(Math.random() * (max - min + 1)) + min;
+        return preBuffer[imn];
+        }  
 
+        // 0 is first image,   preBuffer.length - 1) is  last image
+  
+        var newImage = getRandomInt(0, preBuffer.length - 1);
+ 
+        // remove the previous images
+        var images = document.getElementsByTagName('img');
+        var l = images.length;
+        for (var p = 0; p < l; p++) {
+         images[0].parentNode.removeChild(images[0]);
+        }
+        // display the image  
+        document.body.appendChild(newImage);
+}
+</script>
 {% endblock %}
