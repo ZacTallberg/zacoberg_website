@@ -59,6 +59,23 @@ function display_random_image()
         preBuffer[i].src = images[i].src;
     }
    
+        // get random image number but don't repeat until all have been chosen 
+        /*function randomNoRepeats(array){
+            var copy = array.slice(0);
+            return function(){
+                if (copy.length < 1 ) {copy = array.slice(0);}
+                var index = Math.floor(Math.random() * copy.length);
+                var item = copy[index];
+                copy.splice(index, 1);
+                return item;
+            };
+        }*/
+
+
+
+
+
+
         // create random image number
         function getRandomInt(min,max) 
         {
@@ -79,10 +96,32 @@ function display_random_image()
          images[0].parentNode.removeChild(images[0]);
         }
 
-        title = document.createElement('div');
-        title.style.textAlign = "center";
+        
         // display the image  
+        
         document.body.appendChild(newImage);
-}
+
+        newImage.onload = function () 
+        {
+            var imageWidth = newImage.offsetWidth,
+                imageHeight = newImage.offsetHeight;
+                console.log(imageWidth, imageHeight);
+
+                if(imageWidth > imageHeight)
+                {
+                    vpWidth = document.documentElement.clientWidth,
+                    vpHeight = document.documentElement.clientHeight
+                }
+                else{
+                    vpWidth = document.documentElement.clientWidth,
+                    vpHeight = document.documentElement.clientHeight + 450;
+                }
+                
+
+            this.style.position = 'absolute'
+            this.style.left = (vpWidth - imageWidth)/2 + 'px';   
+            this.style.top = (vpHeight - imageHeight)/2 + window.pageYOffset + 'px';
+        }    
+} 
 </script>
 {% endblock %}
