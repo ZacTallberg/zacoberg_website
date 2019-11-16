@@ -1,16 +1,38 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
-<html lang="en">
-    <body>
-    <head>
-        <title>
-            Meghan is my goddess.
-        </title>
-    </head>
-</body>
-    <body>
-        <h1>Meghan is my goddess</h1>
-       
-        <img src="{% static '/images/seitan.png' %}"/>
-    </body>
-</html>
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="row align-items-center">
+    <div class="col-4">
+        <dl class="row">
+            <dt class="col-sm-6 text-right border-right">Seitan</dt>
+        </dl>
+    </div>
+    <div class="col-8">
+        <form method="GET">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary">KITTEN</button>
+            </div>
+        </form>
+    </div>
+</div>
+<form action="{% url 'report' %}"
+    method="GET">
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width: 1px;"></th>
+            <th>I love this kitten.</th>
+        </tr>
+    </thead>
+    <tbody>
+            </tbody>
+</table>
+
+</form>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
