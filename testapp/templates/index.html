@@ -78,8 +78,13 @@ function display_random_image()
         for (var p = 0; p < l; p++) {
          images[0].parentNode.removeChild(images[0]);
         }
+
+        title = document.createElement('div');
+        title.appendChild(newImage);
+        title.style.textAlign = "center";
+        document.getElementById("div1").appendChild(title);
         // display the image  
-        document.body.appendChild(newImage);
+        //document.body.appendChild(newImage);
 }
 </script>
 {% endblock %}
