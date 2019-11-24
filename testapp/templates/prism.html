@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load static %} 
+
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="row align-items-center"></div>
+                        
+                            
+                        
+    
+                    <div class="container">
+                             <div class="d-flex justify-content-center">
+                                
+                                
+                                    
+                                     <a> <img src = "{% static 'images/prism.jpg'%}"> </a>
+                                    
+                                
+                            </div>
+                        </div>
+                       
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+
+function display_prism()
+{
+    var pimages = 
+        [
+        {src: "http://zacoberg.com/static/images/prism.jpg"}, 
+        
+        ];
+    var preBuffer = [];
+        for (var i = 0, j = pimages.length; i < j; i++) 
+        {
+            preBuffer[i] = new Image();
+            preBuffer[i].src = pimages[i].src;
+        }
+
+    var pnewImage = preBuffer.pop()
+
+
+    newImage.onload = function () 
+        {
+            var imageWidth = newImage.offsetWidth,
+                imageHeight = newImage.offsetHeight;
+                console.log(imageWidth, imageHeight);
+
+                if(imageWidth > imageHeight)
+                {
+                    vpWidth = document.documentElement.clientWidth,
+                    vpHeight = document.documentElement.clientHeight
+                }
+                else{
+                    vpWidth = document.documentElement.clientWidth,
+                    vpHeight = document.documentElement.clientHeight + 400
+                }
+                
+
+            this.style.position = 'absolute'
+            this.style.left = (vpWidth - imageWidth)/2 + 'px';   
+            this.style.top = (vpHeight - imageHeight)/2 + window.pageYOffset + 'px';
+        }   
+    
+    document.body.appendChild(pnewImage);
+}
+
+</script>
+{% endblock %}
