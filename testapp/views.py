@@ -4,7 +4,7 @@ from django.views.generic import View
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.staticfiles.templatetags.staticfiles import static
-#rom django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.staticfiles.storage import staticfiles_storage
 from . import views
 import random
 import os 
@@ -30,7 +30,7 @@ def prism(request):
     
 class Kitten(View):
     def get(self, request, *args, **kwargs):
-        url = static('images/kitten')
+        url = static('images/')
         all_images = load_all_images(url)
         print(all_images)
         return render(
