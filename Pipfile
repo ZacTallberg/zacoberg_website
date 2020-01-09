@@ -11,6 +11,8 @@ django = "*"
 gunicorn = "*"
 django-bootstrap4 = "*"
 pillow = "*"
+opencv-python = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
