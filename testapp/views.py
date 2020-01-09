@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.template import RequestContext
 #from django.shortcuts import render_to_response
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.conf.urls.static import static
+#from django.contrib.staticfiles.templatetags import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from . import views
 import random
