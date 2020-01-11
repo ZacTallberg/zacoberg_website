@@ -19,10 +19,12 @@ from . import settings
 from django.contrib.staticfiles.urls import static 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
 urlpatterns = [
     path('', include('testapp.urls')),
     path('admin/', admin.site.urls),
+    
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+#urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
