@@ -2,6 +2,7 @@
     "_meta": {
         "hash": {
             "sha256": "2d89fabddb89aa5f1cb3a06bf1fa034476becb0882f11225d5d37564b3cf94eb"
+
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,6 +23,7 @@
                 "sha256:ea448f92fc35a0ef4b1508f53a04c4670255a3f33d22a81c8fc9c872036adbe5"
             ],
             "version": "==3.2.3"
+
         },
         "beautifulsoup4": {
             "hashes": [
@@ -30,6 +32,7 @@
                 "sha256:e1505eeed31b0f4ce2dbb3bc8eb256c04cc2b3b72af7d551a4ab6efd5cbe5dae"
             ],
             "version": "==4.8.2"
+
         },
         "django": {
             "hashes": [
@@ -38,14 +41,17 @@
             ],
             "index": "pypi",
             "version": "==3.0.2"
+
         },
         "django-bootstrap4": {
             "hashes": [
+
                 "sha256:0fcd84f8414a58b43df0b331c00c8b2f1786ae28f75f419b4d33b06fca43e0d1",
                 "sha256:39f97cbce85eb66f6d76be2029bae171bd3863d0c6932b1c2dae7f299c569b90"
             ],
             "index": "pypi",
             "version": "==1.1.1"
+
         },
         "pytz": {
             "hashes": [
@@ -67,7 +73,17 @@
                 "sha256:7c3dca29c022744e95b547e867cee89f4fce4373f3549ccd8797d8eb52cdb873"
             ],
             "version": "==0.3.0"
+        },
+        "whitenoise": {
+            "hashes": [
+                "sha256:0f9137f74bd95fa54329ace88d8dc695fbe895369a632e35f7a136e003e41d73",
+                "sha256:62556265ec1011bd87113fb81b7516f52688887b7a010ee899ff1fd18fd22700"
+            ],
+            "index": "pypi",
+            "version": "==5.0.1"
         }
     },
+
     "develop": {}
+
 }

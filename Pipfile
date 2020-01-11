@@ -8,6 +8,9 @@ verify_ssl = true
 [packages]
 django = "*"
 django-bootstrap4 = "*"
+pillow = "*"
+opencv-python = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
