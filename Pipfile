@@ -8,9 +8,8 @@ pylint = "*"
 
 [packages]
 django = "*"
-gunicorn = "*"
 django-bootstrap4 = "*"
 pillow = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
