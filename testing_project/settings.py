@@ -27,7 +27,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "files")
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    '/var/www/static/',
 ]
 
 # Quick-start development settings - unsuitable for production
