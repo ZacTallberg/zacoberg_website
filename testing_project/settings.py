@@ -40,8 +40,8 @@ if DEBUG:
     ALLOWED_HOSTS.append('localhost')
     ALLOWED_HOSTS.append('127.0.0.1')
 
-DOMAIN = (os.environ.get(ENV) == prod, '.zacoberg.com', '127.0.0.1')
-
+DOMAIN = '.zacoberg.com' if os.environ.get('ENV') == 'prod' else '127.0.0.1'
+print(DOMAIN)
 # Application definition
 
 INSTALLED_APPS = [
