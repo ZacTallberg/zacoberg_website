@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
+from django.conf import settings
 import random
 import os
 
@@ -16,6 +17,11 @@ def getListOfKittens():
 
 class HomePage(View):
     def get(self,request,*args,**kwargs):
+
+        
+        print(settings.STATIC_ROOT)
+        print(settings.STATICFILES_DIRS)
+
         return render(
         request, 
         'homepage.html', 
@@ -25,11 +31,13 @@ class HomePage(View):
 
 class ReturnFiles(View):
     def get(self,request,*args,**kwargs):
+        
         path = '/static/images/kitten/'
         all_files = os.listdir(path)
         r=random.randint(1,43)
-
-        path_test = path + all_files[r]
+        image_path = path + all_files[r]
+        path_test = image_path
+        print(path_test)
         data = {'url': path_test}
 
         return JsonResponse(data)

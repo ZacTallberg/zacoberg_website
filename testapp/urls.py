@@ -1,6 +1,8 @@
 
 from django.urls import path
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -9,6 +11,6 @@ urlpatterns = [
     path('kitten/', views.Kitten.as_view(), name='kitten'),
     url(r'^ajax/load_image/$', views.ReturnFiles.as_view(), name='load-image'),
     # path('load_image/', views.ReturnFiles.as_view(), name='load-image'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
