@@ -29,77 +29,7 @@
 <script type="text/javascript">
 function display_random_image() 
 {
-    var images = 
-        [
-        {src: "http://zacoberg.com/static/images/1.jpg"}, 
-        {src: "http://zacoberg.com/static/images/2.jpg"},
-        {src: "http://zacoberg.com/static/images/3.jpg"},
-        {src: "http://zacoberg.com/static/images/4.jpg"},
-        {src: "http://zacoberg.com/static/images/5.jpg"},
-        {src: "http://zacoberg.com/static/images/6.jpg"},
-        {src: "http://zacoberg.com/static/images/7.jpg"},
-        {src: "http://zacoberg.com/static/images/8.jpg"},
-        {src: "http://zacoberg.com/static/images/9.jpg"},
-        {src: "http://zacoberg.com/static/images/10.jpg"},
-        {src: "http://zacoberg.com/static/images/11.jpg"},
-        {src: "http://zacoberg.com/static/images/12.jpg"},
-        {src: "http://zacoberg.com/static/images/13.jpg"},
-        {src: "http://zacoberg.com/static/images/14.jpg"},
-        {src: "http://zacoberg.com/static/images/15.jpg"},
-        {src: "http://zacoberg.com/static/images/16.jpg"},
-        {src: "http://zacoberg.com/static/images/17.jpg"}, 
-        {src: "http://zacoberg.com/static/images/18.jpg"}, 
-        {src: "http://zacoberg.com/static/images/19.jpg"},
-        {src: "http://zacoberg.com/static/images/20.jpg"},
-        {src: "http://zacoberg.com/static/images/21.jpg"},
-        {src: "http://zacoberg.com/static/images/22.jpg"},
-        {src: "http://zacoberg.com/static/images/23.jpg"},
-        {src: "http://zacoberg.com/static/images/24.jpg"},
-        {src: "http://zacoberg.com/static/images/25.jpg"},
-        {src: "http://zacoberg.com/static/images/26.jpg"},
-        {src: "http://zacoberg.com/static/images/27.jpg"},
-        {src: "http://zacoberg.com/static/images/28.jpg"},
-        {src: "http://zacoberg.com/static/images/29.jpg"},
-        {src: "http://zacoberg.com/static/images/30.jpg"},
-        {src: "http://zacoberg.com/static/images/31.jpg"},
-        {src: "http://zacoberg.com/static/images/32.jpg"},
-        {src: "http://zacoberg.com/static/images/33.jpg"},
-        {src: "http://zacoberg.com/static/images/34.jpg"},    
-        {src: "http://zacoberg.com/static/images/35.jpg"}, 
-        {src: "http://zacoberg.com/static/images/36.jpg"},
-        {src: "http://zacoberg.com/static/images/37.jpg"},
-        {src: "http://zacoberg.com/static/images/38.jpg"},
-        {src: "http://zacoberg.com/static/images/39.jpg"},
-        {src: "http://zacoberg.com/static/images/40.jpg"},
-        {src: "http://zacoberg.com/static/images/41.jpg"},
-        {src: "http://zacoberg.com/static/images/42.jpg"},
-        {src: "http://zacoberg.com/static/images/43.jpg"},
-        ];
     
-    var preBuffer = [];
-    for (var i = 0, j = images.length; i < j; i++) 
-    {
-        preBuffer[i] = new Image();
-        preBuffer[i].src = images[i].src;
-    }
-   
-        // get random image number but don't repeat until all have been chosen 
-        /*function randomNoRepeats(array){
-            var copy = array.slice(0);
-            return function(){
-                if (copy.length < 1 ) {copy = array.slice(0);}
-                var index = Math.floor(Math.random() * copy.length);
-                var item = copy[index];
-                copy.splice(index, 1);
-                return item;
-            };
-        }*/
-
-
-
-
-
-
         // create random image number
         function getRandomImage(min,max) 
         {
