@@ -1,18 +1,38 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
-from django.template import RequestContext
-#from django.shortcuts import render_to_response
-from django.conf.urls.static import static
-#from django.contrib.staticfiles.templatetags import static
-from django.contrib.staticfiles.storage import staticfiles_storage
-from . import views
 import random
-import os 
-import cv2 
-import glob 
-import base64 
+import os
 
+
+def getListOfKittens(): 
+    list_of_kittens=[]
+    for i in range(43):
+        r=random.randint(1,43)
+        if r not in list_of_kittens: list_of_kittens.append(r)
+    
+    return list_of_kittens
+
+class HomePage(View):
+    def get(self,request,*args,**kwargs):
+        return render(
+        request, 
+        'homepage.html', 
+        context={
+        }
+    )
+
+class ReturnFiles(View):
+    def get(self,request,*args,**kwargs):
+        path = '/static/images/kitten/'
+        all_files = os.listdir(path)
+        r=random.randint(1,43)
+
+        path_test = path + all_files[r]
+        data = {'url': path_test}
+
+        return JsonResponse(data)
 # Create your views here.
 def index(request):
 

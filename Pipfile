@@ -12,6 +12,10 @@ pillow = "*"
 gunicorn = "*"
 opencv-python = "*"
 whitenoise = "*"
+bootstrap4 = "*"
+python-dotenv = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8"
