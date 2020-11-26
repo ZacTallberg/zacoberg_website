@@ -8,11 +8,10 @@ pylint = "*"
 
 [packages]
 django = "*"
-gunicorn = "*"
 django-bootstrap4 = "*"
 pillow = "*"
 opencv-python = "*"
 whitenoise = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
