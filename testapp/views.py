@@ -3,8 +3,12 @@ from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
 from django.conf import settings
+from .models import KittenImage, FlowerImage
+from .forms import KittenForm, KittenImageModelForm
 import random
 import os
+import cv2
+import glob
 
 
 def getListOfKittens(): 
@@ -17,28 +21,55 @@ def getListOfKittens():
 
 class HomePage(View):
     def get(self,request,*args,**kwargs):
-
         
-        print(settings.STATIC_ROOT)
-        print(settings.STATICFILES_DIRS)
 
-        return render(
-        request, 
-        'homepage.html', 
-        context={
-        }
-    )
+        images = [cv2.imread(file) for file in glob.glob('static/images/kitten/*.jpg')]
+        print(images)
+
+        kitten = KittenImage.objects.create(file=images[5])
+        all_kittens = KittenImage.objects.all()
+        # for kitten in all_kittens:
+        #     kitten.delete()
+        # print(all_kittens)
+
+
+        # kitten_form = KittenImageModelForm()
+        kitten_form = KittenForm()
+
+        return self.render(kitten_form=kitten_form, all_kittens=all_kittens)
+    
+    def post(self, request, *args, **kwargs):
+        # kitten_form = KittenImageModelForm(request.POST)
+        kitten_form = KittenForm(request.POST, request.FILES)
+
+        if kitten_form.is_valid():
+            kitten_form.save()
+        else:
+            self.render(kitten_form=kitten_form)
+            print(kitten_form.errors)
+
+        all_kittens = KittenImage.objects.all()
+        print(vars(all_kittens))
+        
+        return self.render(kitten_form=kitten_form, all_kittens=all_kittens)
+
+    def render (self, **kwargs):
+        return render(self.request, 'homepage.html', context=kwargs)
+
 
 class ReturnFiles(View):
     def get(self,request,*args,**kwargs):
+        all_kittens = KittenImage.objects.all()
+
         
-        path = '/static/images/kitten/'
-        all_files = os.listdir(path)
-        r=random.randint(1,43)
-        image_path = path + all_files[r]
-        path_test = image_path
-        print(path_test)
-        data = {'url': path_test}
+        r=random.randint(0,len(all_kittens)-1)
+
+        print(len(all_kittens), r)
+
+
+        kitten_url = all_kittens[r].file.url
+
+        data = {'url': kitten_url}
 
         return JsonResponse(data)
 # Create your views here.
@@ -69,6 +100,8 @@ class Kitten(View):
                 'all_images':all_images,
             }
         )   
+    
+    
 
 def load_all_images():
     
